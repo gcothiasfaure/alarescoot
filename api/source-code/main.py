@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"Hello": "World we are here"}
+    return {"Hello": "World we are here at 19:04"}
 
 @app.get('/nearest-10-scooters-2-helmets')
 def nearest_10_scooters_2_helmets(lat : float,lng : float):
