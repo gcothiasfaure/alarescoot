@@ -1,0 +1,8 @@
+# api
+.venv
+__pycache__
+
+# mobile-app
+node_modules
+.expo
+.env

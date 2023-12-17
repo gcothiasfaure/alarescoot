@@ -1,0 +1,21 @@
+version: "3.7"
+
+networks:
+  alarescoot-api:
+    name: alarescoot-api
+  traefik-lgna-sandbox:
+    name: traefik-lgna-sandbox
+
+services:
+  alarescoot-api:
+    image: gaspardcothiasfaure/alarescoot-api:1.0
+    container_name: alarescoot-api
+    restart: always
+    networks:
+      - alarescoot-api
+      - traefik-lgna-sandbox
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.alarescoot-api.rule=Host(`api.alarescoot.lgna.fr`)"
+      - "traefik.http.routers.alarescoot-api.entrypoints=websecure"
+      - "traefik.http.routers.alarescoot-api.tls.certresolver=alarescoot-api-resolver"
