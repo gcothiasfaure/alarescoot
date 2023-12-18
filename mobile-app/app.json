@@ -1,0 +1,39 @@
+{
+	"expo": {
+		"name": "Alarescoot",
+		"slug": "alarescoot",
+		"version": "1.0.1",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#000000"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": false,
+			"infoPlist": {
+				"PrimaryLanguage": "fr",
+				"CFBundleDevelopmentRegion": "fr",
+				"NSLocationWhenInUseUsageDescription": "Alarescoot utilise votre position pour récupérer les informations des scooters disponibles les plus proches de vous."
+			},
+			"buildNumber": "2",
+			"bundleIdentifier": "com.lgna.alarescoot"
+		},
+		"plugins": [
+			[
+				"expo-location",
+				{
+					"locationWhenInUsePermission": "Alarescoot utilise votre position pour récupérer les informations des scooters disponibles les plus proches de vous."
+				}
+			]
+		],
+		"extra": {
+			"eas": {
+				"projectId": "92257629-4a94-4c82-880d-9f342d94190a"
+			}
+		}
+	}
+}
