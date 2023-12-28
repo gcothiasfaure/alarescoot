@@ -24,8 +24,8 @@ jobs:
       - name: Build and push alarescoot-api Docker image into Docker Hub
         run: |
           cd api
-          docker build -t gaspardcothiasfaure/alarescoot-api:1.0 .
-          docker push gaspardcothiasfaure/alarescoot-api:1.0
+          docker build -t gaspardcothiasfaure/alarescoot-api:1.1 .
+          docker push gaspardcothiasfaure/alarescoot-api:1.1
 
       - name: Copy files into VPS (1)
         uses: appleboy/scp-action@v0.1.4
@@ -45,5 +45,5 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            docker pull gaspardcothiasfaure/alarescoot-api:1.0
+            docker pull gaspardcothiasfaure/alarescoot-api:1.1
             docker-compose -f /home/debian/lgna-sandbox/alarescoot-api/docker-compose.yml up -d --build
