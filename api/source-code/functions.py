@@ -1,27 +1,5 @@
 import requests
 
-def get_scooter_data_from_cityscoot():
-    response = requests.get("https://mobile-api.cityscoot.io/v1/scooters/available/public?cityId=4",headers={
-        "x-public-api-key": "08368152-2871-4be0-b055-007bb5e7ad83" 
-    })
-    scoot_list = []
-    for scoot in response.json():
-        if scoot['hasTopCase'] == 1:
-            if scoot['autonomy']<10:
-                level = "low"
-            elif scoot['autonomy']<20:
-                level = "medium"
-            else:
-                level = 'high'
-            scoot_list.append({
-                'id':'cityscoot-'+str(scoot['id']),
-                'autonomy':{'number':scoot['autonomy'],'type':'km','level':level},
-                'coords':{'latitude':round(scoot['position']['coordinates'][1],5),'longitude':round(scoot['position']['coordinates'][0],5)},
-                'public_id':{'text':scoot['plate'],'type':'plate'},
-                'operator':{'lib':'Cityscoot','id':'cityscoot'}
-            })
-    return scoot_list
-
 def get_scooter_data_from_yego():
     response = requests.get("https://yugo-assets.s3-eu-west-3.amazonaws.com/landing/data/markers-city-4.json")
     scoot_list = []
