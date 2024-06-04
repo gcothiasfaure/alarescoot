@@ -20,7 +20,7 @@ def get_scooter_data_from_yego():
     return scoot_list
 
 def get_scooter_data_from_cooltra():
-    headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"}
+    headers = {"user-agent": "ecooltra/5.0.44 (com.mobime.eCooltra; build:710; iOS 16.7.8; iPhone 8)"}
     response = requests.get("https://api.zeus.cooltra.com/mobile_cooltra/v1/vehicles?system_id=paris", headers=headers)
     scoot_list = []
     for scoot in response.json():
